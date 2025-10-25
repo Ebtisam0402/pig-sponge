@@ -26,14 +26,29 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        // split the sentence into words
+        String[] words = sentence.split(" ");
+        StringBuilder result = new StringBuilder();
+
+        for(String word : words) {
+            // check if the word starts with a vowel
+            char firstChar = word.charAt(0);
+            if(isVowel(firstChar)){
+                // If it starts with a vowel, keep it the same
+                result.append(word);
+            } else {
+                //Move the first letter to the end and add "ay"
+                result.append(word.substring(1)).append(firstChar).append("ay");
+            }
+            result.append("");
+        }
+        return result.toString().trim();
+
     }
 
-
-
-
-
-
+  private static boolean isVowel(char c) {
+    return "aeiou".indexOf(c) != -1;
+}
 
 
 
