@@ -33,7 +33,51 @@ public class Sponge {
 
   // Implement your solution here!
   public static String spongeCase(String sentence) {
-    return null;
+    // first need an empty string 
+    //To split the sentence in to words
+    //Lets take the word and the result will have word sseperaded by space
+    //For loop to take each character and check if starts with lower case to upper case
+   
+   // Create a stringbuilder for the final result
+    StringBuilder result = new StringBuilder();
+
+    //Split the sentence into words
+    String[] words = sentence.split(" ");
+
+    // Loop through each word
+    for (int i = 0; i < words.length; i++){
+      String word = words[i];
+      StringBuilder spongeWord = new StringBuilder();
+
+      //convert the word into a char array to process each character
+      char[] chars = word.toCharArray();
+
+      //Alternate between lower and upper case
+
+       for (int j = 0; j < chars.length; j++) {
+        char currentChar = chars[j];
+
+        // Even index → lowercase, Odd index → uppercase
+        if (j % 2 == 0) {
+          spongeWord.append(Character.toLowerCase(currentChar));
+        } else {
+          spongeWord.append(Character.toUpperCase(currentChar));
+        }
+      }
+
+      // Append the processed word to the result
+      result.append(spongeWord);
+
+      // Add a space after each word except the last one
+      if (i < words.length - 1) {
+        result.append(" ");
+
+    }
+  }
+
+    // Return the final sponge case string
+    return result.toString();
+
   }
 
 
